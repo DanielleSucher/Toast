@@ -12,6 +12,8 @@
 @interface DESViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *guessField;
 @property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *guessCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *closestGuessLabel;
 @property (strong, nonatomic) DESGame *game;
 @end
 
@@ -49,10 +51,13 @@
 #pragma mark
 
 - (IBAction)checkGuess:(id)sender {
-    // TODO
+    [self.game comparePreviousGuessWithNewGuess:[self.guessField.text lowercaseString]];
+    [self UpdateUI];
 }
 
 - (void)UpdateUI {
+    self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count]];
+    self.closestGuessLabel.text = [self.game closestGuess];
     if (self.game.gameOver) {
         self.resultsLabel.text = @"You won!";
     } else {

@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSMutableArray *guesses;
 @property (strong, nonatomic) NSMutableArray *guessScores;
 
-- (void)comparePreviousGuessandNewGuess:(NSString *)newGuess;
+- (void)comparePreviousGuessWithNewGuess:(NSString *)newGuess;
+
+- (NSString *)closestGuess;
 
 @end

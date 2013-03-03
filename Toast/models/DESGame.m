@@ -28,14 +28,7 @@
     return self;
 }
 
-@synthesize word = _word;
-- (NSString *)word {
-    // TODO return random word once the dictionary db is set up
-    if (!_word) _word = @"trust";
-    return _word;
-}
-
-- (void)comparePreviousGuessandNewGuess:(NSString *)newGuess {
+- (void)comparePreviousGuessWithNewGuess:(NSString *)newGuess {
     [self.guesses addObject:newGuess];
     [self.guessScores addObject:[self score:newGuess]];
     if ([newGuess isEqualToString:self.word]) self.gameOver = YES;
@@ -51,6 +44,34 @@
 
 - (NSNumber *)score:(NSString *)guess {
     // TODO
+}
+
+- (NSString *)closestGuess {
+    NSArray *sortedGuessScores = [self.guessScores sortedArrayUsingComparator: ^NSComparisonResult(id score1, id score2) {
+        return [(NSNumber *)score1 compare:(NSNumber *)score2];
+    }];
+    
+    int index = [self.guessScores indexOfObject:sortedGuessScores[0]];
+    return self.guesses[index];
+}
+
+#pragma mark getters
+
+@synthesize word = _word;
+- (NSString *)word {
+    // TODO return random word once the dictionary db is set up
+    if (!_word) _word = @"trust";
+    return _word;
+}
+
+- (NSMutableArray *)guesses {
+    if (!_guesses) _guesses = [[NSMutableArray alloc] init];
+    return _guesses;
+}
+
+- (NSMutableArray *)guessScores {
+    if (!_guessScores) _guessScores = [[NSMutableArray alloc] init];
+    return _guessScores;
 }
 
 @end
