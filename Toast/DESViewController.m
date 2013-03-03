@@ -45,7 +45,11 @@
 }
 
 - (void)UpdateUI {
-    self.resultsLabel = [NSString stringWithFormat:@"It's closer to %@ than to %@.", self.game.betterGuess, self.game.worseGuess];
+    if (self.game.gameOver) {
+        self.resultsLabel.text = @"You won!";
+    } else {
+        self.resultsLabel.text = [NSString stringWithFormat:@"It's closer to %@ than to %@.", self.game.betterGuess, self.game.worseGuess];
+    }
 }
 
 - (DESGame *)game {
