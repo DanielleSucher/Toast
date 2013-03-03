@@ -42,8 +42,9 @@
     }
 }
 
-- (NSNumber *)score:(NSString *)guess {
+- (NSNumber *)score:(NSString *)guessedWord {
     // TODO
+    return [[NSNumber alloc] init];
 }
 
 - (NSString *)closestGuess {

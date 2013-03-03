@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *guessCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *closestGuessLabel;
+@property (weak, nonatomic) IBOutlet UILabel *previousGuessLabel;
 @property (strong, nonatomic) DESGame *game;
 @end
 
@@ -56,12 +57,14 @@
 }
 
 - (void)UpdateUI {
-    self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count]];
+    self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count] -1];
     self.closestGuessLabel.text = [self.game closestGuess];
+    self.previousGuessLabel.text = [self.guessField.text lowercaseString];
+    self.guessField.text = nil;
     if (self.game.gameOver) {
         self.resultsLabel.text = @"You won!";
     } else {
-        self.resultsLabel.text = [NSString stringWithFormat:@"It's closer to %@ than to %@.", self.game.betterGuess, self.game.worseGuess];
+        self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than to %@.", self.game.betterGuess, self.game.worseGuess];
     }
 }
 
