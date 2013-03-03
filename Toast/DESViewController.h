@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface DESViewController : UIViewController
-
+@property (strong, nonatomic) NSString *databasePath;
+@property (nonatomic) sqlite3 *wordsDB;
 @end

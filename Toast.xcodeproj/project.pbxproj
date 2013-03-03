@@ -18,6 +18,9 @@
 		87D35F1716E3034F00DA4552 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D35F1616E3034F00DA4552 /* Default-568h@2x.png */; };
 		87D35F1A16E3034F00DA4552 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D35F1816E3034F00DA4552 /* MainStoryboard.storyboard */; };
 		87D35F1D16E3034F00DA4552 /* DESViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D35F1C16E3034F00DA4552 /* DESViewController.m */; };
+		87D35F2516E3062700DA4552 /* DESGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D35F2416E3062700DA4552 /* DESGame.m */; };
+		87D35F2916E3066200DA4552 /* DESLevenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D35F2816E3066200DA4552 /* DESLevenshtein.m */; };
+		87D35F2B16E322A400DA4552 /* toastDB in Resources */ = {isa = PBXBuildFile; fileRef = 87D35F2A16E322A400DA4552 /* toastDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,11 @@
 		87D35F1916E3034F00DA4552 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		87D35F1B16E3034F00DA4552 /* DESViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DESViewController.h; sourceTree = "<group>"; };
 		87D35F1C16E3034F00DA4552 /* DESViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DESViewController.m; sourceTree = "<group>"; };
+		87D35F2316E3062700DA4552 /* DESGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DESGame.h; path = models/DESGame.h; sourceTree = "<group>"; };
+		87D35F2416E3062700DA4552 /* DESGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DESGame.m; path = models/DESGame.m; sourceTree = "<group>"; };
+		87D35F2716E3066200DA4552 /* DESLevenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DESLevenshtein.h; path = models/DESLevenshtein.h; sourceTree = "<group>"; };
+		87D35F2816E3066200DA4552 /* DESLevenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DESLevenshtein.m; path = models/DESLevenshtein.m; sourceTree = "<group>"; };
+		87D35F2A16E322A400DA4552 /* toastDB */ = {isa = PBXFileReference; lastKnownFileType = file; path = toastDB; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 			children = (
 				87D35F0F16E3034F00DA4552 /* DESAppDelegate.h */,
 				87D35F1016E3034F00DA4552 /* DESAppDelegate.m */,
+				87D35F2616E3062C00DA4552 /* models */,
 				87D35F1816E3034F00DA4552 /* MainStoryboard.storyboard */,
 				87D35F1B16E3034F00DA4552 /* DESViewController.h */,
 				87D35F1C16E3034F00DA4552 /* DESViewController.m */,
@@ -96,6 +105,7 @@
 		87D35F0716E3034F00DA4552 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				87D35F2A16E322A400DA4552 /* toastDB */,
 				87D35F0816E3034F00DA4552 /* Toast-Info.plist */,
 				87D35F0916E3034F00DA4552 /* InfoPlist.strings */,
 				87D35F0C16E3034F00DA4552 /* main.m */,
@@ -105,6 +115,17 @@
 				87D35F1616E3034F00DA4552 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87D35F2616E3062C00DA4552 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				87D35F2316E3062700DA4552 /* DESGame.h */,
+				87D35F2416E3062700DA4552 /* DESGame.m */,
+				87D35F2716E3066200DA4552 /* DESLevenshtein.h */,
+				87D35F2816E3066200DA4552 /* DESLevenshtein.m */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +185,7 @@
 				87D35F1516E3034F00DA4552 /* Default@2x.png in Resources */,
 				87D35F1716E3034F00DA4552 /* Default-568h@2x.png in Resources */,
 				87D35F1A16E3034F00DA4552 /* MainStoryboard.storyboard in Resources */,
+				87D35F2B16E322A400DA4552 /* toastDB in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +199,8 @@
 				87D35F0D16E3034F00DA4552 /* main.m in Sources */,
 				87D35F1116E3034F00DA4552 /* DESAppDelegate.m in Sources */,
 				87D35F1D16E3034F00DA4552 /* DESViewController.m in Sources */,
+				87D35F2516E3062700DA4552 /* DESGame.m in Sources */,
+				87D35F2916E3066200DA4552 /* DESLevenshtein.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
