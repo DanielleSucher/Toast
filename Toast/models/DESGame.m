@@ -29,6 +29,7 @@
 }
 
 - (void)comparePreviousGuessWithNewGuess:(NSString *)newGuess {
+    newGuess = [newGuess lowercaseString];
     [self.guesses addObject:newGuess];
     [self.guessScores addObject:[self score:newGuess]];
     if ([newGuess isEqualToString:self.word]) self.gameOver = YES;

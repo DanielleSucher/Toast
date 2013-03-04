@@ -11,10 +11,10 @@
 
 @interface DESViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *guessField;
+@property (weak, nonatomic) IBOutlet UILabel *previousGuessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *guessCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *closestGuessLabel;
-@property (weak, nonatomic) IBOutlet UILabel *previousGuessLabel;
 @property (strong, nonatomic) DESGame *game;
 @end
 
@@ -51,20 +51,31 @@
 
 #pragma mark
 
-- (IBAction)checkGuess:(id)sender {
-    [self.game comparePreviousGuessWithNewGuess:[self.guessField.text lowercaseString]];
-    [self UpdateUI];
+- (IBAction)returnFromSubmitButton:(id)sender {
+    [self checkGuess];
+}
+
+- (IBAction)returnFromGuessField:(id)sender {
+    [self checkGuess];    
+}
+
+- (void)checkGuess {
+    if ([self.guessField.text length] > 0) {
+        [self.game comparePreviousGuessWithNewGuess:self.guessField.text];
+        [self UpdateUI];
+    }
+    [self.guessField resignFirstResponder];
 }
 
 - (void)UpdateUI {
     self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count] -1];
-    self.closestGuessLabel.text = [self.game closestGuess];
-    self.previousGuessLabel.text = [self.guessField.text lowercaseString];
+    self.closestGuessLabel.text = [NSString stringWithFormat:@"closest guess: %@", [self.game closestGuess]];
+    self.previousGuessLabel.text = [NSString stringWithFormat:@"Is it more like %@", self.game.betterGuess];
     self.guessField.text = nil;
     if (self.game.gameOver) {
         self.resultsLabel.text = @"You won!";
     } else {
-        self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than to %@.", self.game.betterGuess, self.game.worseGuess];
+        self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than like %@.", self.game.betterGuess, self.game.worseGuess];
     }
 }
 
