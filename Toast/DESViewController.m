@@ -10,18 +10,19 @@
 #import "DESGame.h"
 
 @interface DESViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *guessField;
 @property (weak, nonatomic) IBOutlet UILabel *previousGuessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *guessCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *closestGuessLabel;
 @property (strong, nonatomic) DESGame *game;
 @end
 
 @implementation DESViewController
 
+@synthesize guessField = _guessField;
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad]; 
+    _guessField.delegate = self;
     
 //    // Get the documents directory
 //    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -51,12 +52,13 @@
 
 #pragma mark
 
-- (IBAction)returnFromSubmitButton:(id)sender {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self checkGuess];
+    return YES;
 }
 
-- (IBAction)returnFromGuessField:(id)sender {
-    [self checkGuess];    
+- (IBAction)returnFromSubmitButton:(id)sender {
+    [self checkGuess];
 }
 
 - (void)checkGuess {
@@ -69,7 +71,6 @@
 
 - (void)UpdateUI {
     self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count] -1];
-    self.closestGuessLabel.text = [NSString stringWithFormat:@"closest guess: %@", [self.game closestGuess]];
     self.previousGuessLabel.text = [NSString stringWithFormat:@"Is it more like %@", self.game.betterGuess];
     self.guessField.text = nil;
     if (self.game.gameOver) {
@@ -83,6 +84,5 @@
     if (!_game) _game = [[DESGame alloc] init];
     return _game;
 }
-
 
 @end

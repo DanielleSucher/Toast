@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
-@interface DESViewController : UIViewController
+@interface DESViewController : UIViewController <UITextFieldDelegate> {
+    IBOutlet UITextField *guessField;
+}
+@property (weak, nonatomic) IBOutlet UITextField *guessField;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *wordsDB;
 @end
