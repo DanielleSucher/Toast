@@ -10,7 +10,7 @@
 #import "DESLevenshtein.h"
 
 @interface DESGame()
-@property (readwrite, nonatomic) NSString *betterGuess;
+@property (readwrite, nonatomic) NSString *currentBestGuess;
 @property (readwrite, nonatomic) NSString *worseGuess;
 @property (readwrite, nonatomic) NSMutableString *history;
 @property (readwrite, nonatomic) BOOL gameOver;
@@ -21,8 +21,10 @@
 - (void)comparePreviousGuessWithNewGuess:(NSString *)newGuess {
     newGuess = [newGuess lowercaseString];
     [self.guesses addObject:newGuess];
-    [self.guessScores addObject:[self score:newGuess]];
-    [self updateBetterAndWorseGuesses];
+    NSNumber *newScore = [self score:newGuess];
+    [self.guessScores addObject:newScore];
+    [self updateBetterAndWorseGuesses:newGuess
+                   givenNewGuessScore:newScore];
     [self updateHistory];
     if ([newGuess isEqualToString:self.word]) {
         self.gameOver = YES;
@@ -37,18 +39,20 @@
 }
 
 - (void)updateHistory {
-    [self.history appendFormat:@"It's more like %@ than like %@.\n\n", self.betterGuess, self.worseGuess];
+    [self.history appendFormat:@"It's more like %@ than like %@.\n\n", self.currentBestGuess, self.worseGuess];
 }
 
-- (void)updateBetterAndWorseGuesses {
-    int guessCount = [self.guesses count];
-    if (self.guessScores[guessCount - 1] > self.guessScores[guessCount - 2]) {
-        self.betterGuess = self.guesses[guessCount - 1];
-        self.worseGuess = self.guesses[guessCount - 2];
+- (void)updateBetterAndWorseGuesses:(NSString *)newGuess givenNewGuessScore:(NSNumber *)newScore {
+    if (newScore > self.guessScores[[self indexOfCurrentBestGuess]]) {
+        self.worseGuess = self.currentBestGuess;
+        self.currentBestGuess = newGuess;
     } else {
-        self.betterGuess = self.guesses[guessCount - 2];
-        self.worseGuess = self.guesses[guessCount - 1];
+        self.worseGuess = newGuess;
     }
+}
+
+- (int)indexOfCurrentBestGuess {
+    return [self.guesses indexOfObject:self.currentBestGuess];
 }
 
 
@@ -80,6 +84,11 @@
 - (NSString *)history {
     if (!_history) _history = [NSMutableString stringWithString:@"Guess history:\n\n"];
     return _history;
+}
+
+- (NSString *)currentBestGuess {
+    if (!_currentBestGuess) _currentBestGuess = @"toast";
+    return _currentBestGuess;
 }
 
 @end

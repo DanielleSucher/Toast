@@ -11,7 +11,7 @@
 @interface DESGame : NSObject
 
 @property (readonly, nonatomic) NSString *word;
-@property (readonly, nonatomic) NSString *betterGuess;
+@property (readonly, nonatomic) NSString *currentBestGuess;
 @property (readonly, nonatomic) NSString *worseGuess;
 @property (readonly, nonatomic) NSMutableString *history;
 @property (readonly, nonatomic) BOOL gameOver;

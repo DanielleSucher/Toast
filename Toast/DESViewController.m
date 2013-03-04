@@ -71,12 +71,12 @@
 
 - (void)UpdateUI {
     self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count] -1];
-    self.previousGuessLabel.text = [NSString stringWithFormat:@"Is it more like %@", self.game.betterGuess];
+    self.previousGuessLabel.text = [NSString stringWithFormat:@"Is it more like %@", self.game.currentBestGuess];
     self.guessField.text = nil;
     if (self.game.gameOver) {
         self.resultsLabel.text = @"You won!";
     } else {
-        self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than like %@.", self.game.betterGuess, self.game.worseGuess];
+        self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than like %@.", self.game.currentBestGuess, self.game.worseGuess];
     }
     [self updateUserDefaultsHistory];
 }
