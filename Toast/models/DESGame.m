@@ -43,8 +43,8 @@
 }
 
 - (NSNumber *)score:(NSString *)guessedWord {
-    // TODO
-    return [[NSNumber alloc] init];
+    DESLevenshtein *levenshtein = [[DESLevenshtein alloc] initWithStringOne:guessedWord andStringTwo:self.word];
+    return [levenshtein editDistance];
 }
 
 - (NSString *)closestGuess {
