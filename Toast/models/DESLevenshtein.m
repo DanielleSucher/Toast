@@ -31,7 +31,7 @@
             for (int i = 0; i < [self.stringOne length]; i++) {
                 [_editGrid addObject:[NSMutableArray arrayWithCapacity:[self.stringTwo length]]];
                 for (int j = 0; j < [self.stringTwo length]; j++) {
-                    [_editGrid[j] addObject:@(0)];
+                    [_editGrid[i] addObject:@(0)];
                 }
             }
 
@@ -60,9 +60,9 @@
                                       andCharacterTwo:[self.stringTwo characterAtIndex:j]];
             }
         }
-        _editDistance = self.editGrid[[self.stringOne length]][[self.stringTwo length]];
+        _editDistance = self.editGrid[[self.stringOne length] -1][[self.stringTwo length] -1];
     }else {
-        _editDistance = 0;
+        _editDistance = @(0);
     }
     return _editDistance;
 }
@@ -72,9 +72,14 @@
                            characterOne:(unichar)characterOne
                         andCharacterTwo:(unichar)characterTwo {
     // get scores for the three possible next steps
-    int a = [self.editGrid[indexOne - 1][indexTwo] intValue] + 1;
-    int b = [self.editGrid[indexOne - 1][indexTwo - 1] intValue] + (characterOne != characterTwo);
-    int c = [self.editGrid[indexOne][indexTwo - 1] intValue] + 1;
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    if (indexOne > 0) {
+        a = [self.editGrid[indexOne - 1][indexTwo] intValue] + 1;
+        if (indexTwo > 0) b = [self.editGrid[indexOne - 1][indexTwo - 1] intValue] + (characterOne != characterTwo);
+    }
+    if (indexTwo > 0) c = [self.editGrid[indexOne][indexTwo - 1] intValue] + 1;
     
     // set the correct grid square to the lowest of the possible scores
     int lowestScore =  MIN(a, MIN(b,c));

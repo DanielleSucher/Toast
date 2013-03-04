@@ -8,16 +8,16 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Toast/models/DESLevenshtein.m"
-         timestampString = "383981451.042603"
+         timestampString = "384072717.778131"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
          landmarkName = "-editGrid"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Toast/DESWord.m"
@@ -42,5 +42,27 @@
          landmarkName = "@implementation DESLevenshtein"
          landmarkType = "3">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Toast/models/DESLevenshtein.m"
+         timestampString = "384073050.391142"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
+         landmarkName = "-setEditDistanceStepWithIndexOne:indexTwo:characterOne:andCharacterTwo:"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
+   <ExceptionBreakpoints>
+      <ExceptionBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         scope = "0"
+         stopOnStyle = "0">
+      </ExceptionBreakpoint>
+   </ExceptionBreakpoints>
 </Bucket>

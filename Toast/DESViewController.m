@@ -23,24 +23,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Get the documents directory
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = dirPaths[0];
-    
-    // Build the path to the database file
-    _databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"toastDB"]];
-    
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    
-    if ([filemgr fileExistsAtPath: _databasePath ] == NO) {
-        const char *dbpath = [_databasePath UTF8String];
-        
-        if (sqlite3_open(dbpath, &_wordsDB) == SQLITE_OK) {
-            sqlite3_close(_wordsDB);
-        } else {
-//            _status.text = @"Failed to find wordlist";
-        }
-    }
+//    // Get the documents directory
+//    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *docsDir = dirPaths[0];
+//    
+//    // Build the path to the database file
+//    _databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"toastDB"]];
+//    
+//    NSFileManager *filemgr = [NSFileManager defaultManager];
+//    
+//    if ([filemgr fileExistsAtPath: _databasePath ] == NO) {
+//        const char *dbpath = [_databasePath UTF8String];
+//        
+//        if (sqlite3_open(dbpath, &_wordsDB) == SQLITE_OK) {
+//            sqlite3_close(_wordsDB);
+//        } else {
+////            _status.text = @"Failed to find wordlist";
+//        }
+//    }
 }
 
 - (void)didReceiveMemoryWarning
