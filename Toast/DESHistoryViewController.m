@@ -15,7 +15,10 @@
 
 @implementation DESHistoryViewController
 
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.historyTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"toastHistory"];
+}
 
 #pragma mark
 

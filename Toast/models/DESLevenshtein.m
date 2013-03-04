@@ -83,7 +83,7 @@
     
     // set the correct grid square to the lowest of the possible scores
     int lowestScore =  MIN(a, MIN(b,c));
-    self.editGrid[indexOne][indexTwo] = [NSNumber numberWithInt:lowestScore];
+    self.editGrid[indexOne][indexTwo] = @(lowestScore);
 }
 
 @end

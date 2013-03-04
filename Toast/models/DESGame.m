@@ -12,27 +12,35 @@
 @interface DESGame()
 @property (readwrite, nonatomic) NSString *betterGuess;
 @property (readwrite, nonatomic) NSString *worseGuess;
+@property (readwrite, nonatomic) NSMutableString *history;
 @property (readwrite, nonatomic) BOOL gameOver;
 @end
 
 @implementation DESGame
 
-// designated initializer
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.gameOver = NO;
-        [self.guesses addObject:@"toast"];
-        [self.guessScores addObject:[self score:@"toast"]];
-    }
-    return self;
-}
-
 - (void)comparePreviousGuessWithNewGuess:(NSString *)newGuess {
     newGuess = [newGuess lowercaseString];
     [self.guesses addObject:newGuess];
     [self.guessScores addObject:[self score:newGuess]];
-    if ([newGuess isEqualToString:self.word]) self.gameOver = YES;
+    [self updateBetterAndWorseGuesses];
+    [self updateHistory];
+    if ([newGuess isEqualToString:self.word]) {
+        self.gameOver = YES;
+        [self.history appendFormat:@"Game over! The word was: %@", [self.word uppercaseString]];
+    }
+        
+}
+
+- (NSNumber *)score:(NSString *)guessedWord {
+    DESLevenshtein *levenshtein = [[DESLevenshtein alloc] initWithStringOne:guessedWord andStringTwo:self.word];
+    return [levenshtein editDistance];
+}
+
+- (void)updateHistory {
+    [self.history appendFormat:@"It's more like %@ than like %@.\n\n", self.betterGuess, self.worseGuess];
+}
+
+- (void)updateBetterAndWorseGuesses {
     int guessCount = [self.guesses count];
     if (self.guessScores[guessCount - 1] > self.guessScores[guessCount - 2]) {
         self.betterGuess = self.guesses[guessCount - 1];
@@ -43,10 +51,6 @@
     }
 }
 
-- (NSNumber *)score:(NSString *)guessedWord {
-    DESLevenshtein *levenshtein = [[DESLevenshtein alloc] initWithStringOne:guessedWord andStringTwo:self.word];
-    return [levenshtein editDistance];
-}
 
 #pragma mark getters
 
@@ -58,13 +62,24 @@
 }
 
 - (NSMutableArray *)guesses {
-    if (!_guesses) _guesses = [[NSMutableArray alloc] init];
+    if (!_guesses) {
+        _guesses = [[NSMutableArray alloc] init];
+        [_guesses addObject:@"toast"];
+    }
     return _guesses;
 }
 
 - (NSMutableArray *)guessScores {
-    if (!_guessScores) _guessScores = [[NSMutableArray alloc] init];
+    if (!_guessScores) {
+        _guessScores = [[NSMutableArray alloc] init];
+        [_guessScores addObject:[self score:@"toast"]];
+    }
     return _guessScores;
+}
+
+- (NSString *)history {
+    if (!_history) _history = [NSMutableString stringWithString:@"Guess history:\n\n"];
+    return _history;
 }
 
 @end

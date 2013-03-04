@@ -78,11 +78,20 @@
     } else {
         self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than like %@.", self.game.betterGuess, self.game.worseGuess];
     }
+    [self updateUserDefaultsHistory];
 }
 
 - (DESGame *)game {
     if (!_game) _game = [[DESGame alloc] init];
     return _game;
+}
+
+-(void)updateUserDefaultsHistory {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (userDefaults) {
+        [userDefaults setObject:self.game.history forKey:@"toastHistory"];
+        [userDefaults synchronize];
+    }
 }
 
 @end
