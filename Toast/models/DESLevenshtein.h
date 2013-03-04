@@ -16,4 +16,7 @@
 @property (readonly, nonatomic) NSMutableArray *editGrid;
 @property (readonly, nonatomic) NSNumber *editDistance;
 
+// designated initializer
+- (id)initWithStringOne:(NSString *)stringOne andStringTwo:(NSString *)stringTwo;
+
 @end

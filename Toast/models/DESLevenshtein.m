@@ -13,6 +13,16 @@
 @synthesize editGrid = _editGrid;
 @synthesize editDistance = _editDistance;
 
+// designated initializer
+- (id)initWithStringOne:(NSString *)stringOne andStringTwo:(NSString *)stringTwo {
+    self = [super init];
+    if (self) {
+        _stringOne = stringOne;
+        _stringTwo = stringTwo;
+    }
+    return self;
+}
+
 - (NSMutableArray *)editGrid {
     if (!_editGrid) {
         _editGrid = [NSMutableArray arrayWithCapacity:[self.stringOne length]];
