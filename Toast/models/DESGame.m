@@ -55,13 +55,26 @@
     return [self.guesses indexOfObject:self.currentBestGuess];
 }
 
+// use the list of the 5000 most common words in English to pick 
+// a random word to be the answer
+// the list is from http://www.englishclub.com/vocabulary/common-words-5000.htm
+// with all <3 letter words and words with ' or - removed
+- (NSString *)randomCommonWord {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"commonwords"
+                                                         ofType:@"txt"];
+    NSArray *commonWords = [[NSString stringWithContentsOfFile:filePath
+                                                      encoding:NSUTF8StringEncoding
+                                                         error:NULL]
+                            componentsSeparatedByString:@"\n"];
+    NSUInteger randomIndex = arc4random() % [commonWords count];
+    return commonWords[randomIndex];
+}
 
 #pragma mark getters
 
 @synthesize word = _word;
 - (NSString *)word {
-    // TODO return random word once the dictionary db is set up
-    if (!_word) _word = @"trust";
+    if (!_word) _word = [self randomCommonWord];
     return _word;
 }
 
