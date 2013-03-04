@@ -21,6 +21,7 @@
 		87D35F2516E3062700DA4552 /* DESGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D35F2416E3062700DA4552 /* DESGame.m */; };
 		87D35F2916E3066200DA4552 /* DESLevenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D35F2816E3066200DA4552 /* DESLevenshtein.m */; };
 		87D35F2B16E322A400DA4552 /* toastDB in Resources */ = {isa = PBXBuildFile; fileRef = 87D35F2A16E322A400DA4552 /* toastDB */; };
+		87D35F3116E486EC00DA4552 /* DESHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D35F3016E486EC00DA4552 /* DESHistoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		87D35F2716E3066200DA4552 /* DESLevenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DESLevenshtein.h; path = models/DESLevenshtein.h; sourceTree = "<group>"; };
 		87D35F2816E3066200DA4552 /* DESLevenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DESLevenshtein.m; path = models/DESLevenshtein.m; sourceTree = "<group>"; };
 		87D35F2A16E322A400DA4552 /* toastDB */ = {isa = PBXFileReference; lastKnownFileType = file; path = toastDB; sourceTree = "<group>"; };
+		87D35F2F16E486EC00DA4552 /* DESHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DESHistoryViewController.h; sourceTree = "<group>"; };
+		87D35F3016E486EC00DA4552 /* DESHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DESHistoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				87D35F1016E3034F00DA4552 /* DESAppDelegate.m */,
 				87D35F2616E3062C00DA4552 /* models */,
 				87D35F1816E3034F00DA4552 /* MainStoryboard.storyboard */,
+				87D35F2F16E486EC00DA4552 /* DESHistoryViewController.h */,
+				87D35F3016E486EC00DA4552 /* DESHistoryViewController.m */,
 				87D35F1B16E3034F00DA4552 /* DESViewController.h */,
 				87D35F1C16E3034F00DA4552 /* DESViewController.m */,
 				87D35F0716E3034F00DA4552 /* Supporting Files */,
@@ -201,6 +206,7 @@
 				87D35F1D16E3034F00DA4552 /* DESViewController.m in Sources */,
 				87D35F2516E3062700DA4552 /* DESGame.m in Sources */,
 				87D35F2916E3066200DA4552 /* DESLevenshtein.m in Sources */,
+				87D35F3116E486EC00DA4552 /* DESHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
