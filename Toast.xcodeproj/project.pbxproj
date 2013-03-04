@@ -96,12 +96,9 @@
 			children = (
 				87D35F0F16E3034F00DA4552 /* DESAppDelegate.h */,
 				87D35F1016E3034F00DA4552 /* DESAppDelegate.m */,
+				87D35F3216E494F800DA4552 /* controllers */,
 				87D35F2616E3062C00DA4552 /* models */,
 				87D35F1816E3034F00DA4552 /* MainStoryboard.storyboard */,
-				87D35F2F16E486EC00DA4552 /* DESHistoryViewController.h */,
-				87D35F3016E486EC00DA4552 /* DESHistoryViewController.m */,
-				87D35F1B16E3034F00DA4552 /* DESViewController.h */,
-				87D35F1C16E3034F00DA4552 /* DESViewController.m */,
 				87D35F0716E3034F00DA4552 /* Supporting Files */,
 			);
 			path = Toast;
@@ -131,6 +128,17 @@
 				87D35F2816E3066200DA4552 /* DESLevenshtein.m */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		87D35F3216E494F800DA4552 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				87D35F2F16E486EC00DA4552 /* DESHistoryViewController.h */,
+				87D35F3016E486EC00DA4552 /* DESHistoryViewController.m */,
+				87D35F1B16E3034F00DA4552 /* DESViewController.h */,
+				87D35F1C16E3034F00DA4552 /* DESViewController.m */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
