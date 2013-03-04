@@ -46,19 +46,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Toast/models/DESLevenshtein.m"
-         timestampString = "384073050.391142"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
-         landmarkName = "-setEditDistanceStepWithIndexOne:indexTwo:characterOne:andCharacterTwo:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Toast/DESViewController.m"
          timestampString = "384075234.364543"
          startingColumnNumber = "9223372036854775807"
@@ -66,6 +53,19 @@
          startingLineNumber = "72"
          endingLineNumber = "72"
          landmarkName = "-UpdateUI"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Toast/models/DESLevenshtein.m"
+         timestampString = "384080486.399135"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
+         landmarkName = "-setEditDistanceStepWithIndexOne:indexTwo:characterOne:andCharacterTwo:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
