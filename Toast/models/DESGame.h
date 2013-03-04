@@ -21,6 +21,4 @@
 
 - (void)comparePreviousGuessWithNewGuess:(NSString *)newGuess;
 
-- (NSString *)closestGuess;
-
 @end

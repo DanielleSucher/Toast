@@ -48,15 +48,6 @@
     return [levenshtein editDistance];
 }
 
-- (NSString *)closestGuess {
-    NSArray *sortedGuessScores = [self.guessScores sortedArrayUsingComparator: ^NSComparisonResult(id score1, id score2) {
-        return [(NSNumber *)score1 compare:(NSNumber *)score2];
-    }];
-    
-    int index = [self.guessScores indexOfObject:sortedGuessScores[0]];
-    return self.guesses[index];
-}
-
 #pragma mark getters
 
 @synthesize word = _word;
