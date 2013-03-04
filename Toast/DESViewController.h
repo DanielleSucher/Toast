@@ -13,6 +13,4 @@
     IBOutlet UITextField *guessField;
 }
 @property (weak, nonatomic) IBOutlet UITextField *guessField;
-@property (strong, nonatomic) NSString *databasePath;
-@property (nonatomic) sqlite3 *wordsDB;
 @end

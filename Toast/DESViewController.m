@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Danielle Sucher. All rights reserved.
 //
 
+#import <sqlite3.h>
 #import "DESViewController.h"
 #import "DESGame.h"
 
@@ -23,25 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     _guessField.delegate = self;
-    
-//    // Get the documents directory
-//    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *docsDir = dirPaths[0];
-//    
-//    // Build the path to the database file
-//    _databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"toastDB"]];
-//    
-//    NSFileManager *filemgr = [NSFileManager defaultManager];
-//    
-//    if ([filemgr fileExistsAtPath: _databasePath ] == NO) {
-//        const char *dbpath = [_databasePath UTF8String];
-//        
-//        if (sqlite3_open(dbpath, &_wordsDB) == SQLITE_OK) {
-//            sqlite3_close(_wordsDB);
-//        } else {
-////            _status.text = @"Failed to find wordlist";
-//        }
-//    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,23 +44,55 @@
 }
 
 - (void)checkGuess {
-    if ([self.guessField.text length] > 0) {
+    if ([self guessExists] && [self.guessField.text length] > 0) {
         [self.game comparePreviousGuessWithNewGuess:self.guessField.text];
         [self UpdateUI];
+    } else {
+        self.resultsLabel.text = [NSString stringWithFormat:@"%@ is not a real word. Try a different guess!", self.guessField.text];        
     }
-    [self.guessField resignFirstResponder];
+    [self resetGuessField];
 }
 
 - (void)UpdateUI {
     self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count] -1];
     self.previousGuessLabel.text = [NSString stringWithFormat:@"Is it more like %@", self.game.currentBestGuess];
-    self.guessField.text = nil;
     if (self.game.gameOver) {
         self.resultsLabel.text = @"You won!";
     } else {
         self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than like %@.", self.game.currentBestGuess, self.game.worseGuess];
     }
     [self updateUserDefaultsHistory];
+}
+
+- (void)resetGuessField {
+    self.guessField.text = nil;
+    [self.guessField resignFirstResponder];
+}
+
+- (BOOL) guessExists {
+    BOOL exists = NO;
+    sqlite3 *wordsDB;
+    sqlite3_stmt *statement;
+    
+    NSString *databasePath = [[NSBundle mainBundle] pathForResource:@"wordList" ofType:@"sqlite3"];
+    const char *dbpath = [databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &wordsDB) == SQLITE_OK) {
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT 1 FROM words WHERE word='%@'", self.guessField.text];
+        const char *query = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(wordsDB, query, -1, &statement, NULL) == SQLITE_OK) {
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                exists = YES;
+            }
+            sqlite3_finalize(statement);
+        } else {
+            NSLog(@"Failed with message '%s'.", sqlite3_errmsg(wordsDB));
+        }
+        sqlite3_close(wordsDB);
+    } else {
+        NSLog(@"Failed to open database!");
+    }
+    return exists;
 }
 
 - (DESGame *)game {
