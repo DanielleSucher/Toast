@@ -38,11 +38,11 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Toast is inspired by the game French Toast, where one person thinks of an object and the other plays try to gather information by asking "Is it more like X or more like Y?" (where French toast is always the initial reference object, and the latest guess is always compared to the previous closest guess). 
+                                        <string key="content">Toast is inspired by the game French Toast, the game where one person thinks of an object and the other players take turns asking "Is it more like X or more like Y?" (where French toast is always the initial reference object, and the latest guess is always compared to the previous best guess). 
 
 Your phone is thinking of a word, and you're trying to guess what it is. The only feedback you get is whether the word is more like your latest guess, or more like the previous best guess.
 
-How much one word is like another is based on Levenshtein edit distance, which counts the number of edits (i.e. addition, deletion, substitution) needed to transform one word into another.</string>
+How much one word is like another is based on Levenshtein distance, which counts the number of edits (i.e. addition, deletion, substitution) needed to transform one word into another.</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="1"/>
