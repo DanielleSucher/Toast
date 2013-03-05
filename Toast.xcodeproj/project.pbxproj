@@ -24,6 +24,7 @@
 		87D35F3416E5133500DA4552 /* commonwords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87D35F3316E5133500DA4552 /* commonwords.txt */; };
 		87D35F3716E51EE200DA4552 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D35F3616E51EE200DA4552 /* libsqlite3.dylib */; };
 		87D35F3916E52DF000DA4552 /* wordList.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 87D35F3816E52CBA00DA4552 /* wordList.sqlite3 */; };
+		87D35F3C16E5AF4500DA4552 /* DESAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D35F3B16E5AF4500DA4552 /* DESAboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		87D35F3316E5133500DA4552 /* commonwords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = commonwords.txt; sourceTree = "<group>"; };
 		87D35F3616E51EE200DA4552 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		87D35F3816E52CBA00DA4552 /* wordList.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = wordList.sqlite3; sourceTree = "<group>"; };
+		87D35F3A16E5AF4500DA4552 /* DESAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DESAboutViewController.h; sourceTree = "<group>"; };
+		87D35F3B16E5AF4500DA4552 /* DESAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DESAboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 		87D35F3216E494F800DA4552 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				87D35F3A16E5AF4500DA4552 /* DESAboutViewController.h */,
+				87D35F3B16E5AF4500DA4552 /* DESAboutViewController.m */,
 				87D35F2F16E486EC00DA4552 /* DESHistoryViewController.h */,
 				87D35F3016E486EC00DA4552 /* DESHistoryViewController.m */,
 				87D35F1B16E3034F00DA4552 /* DESViewController.h */,
@@ -223,6 +228,7 @@
 				87D35F2516E3062700DA4552 /* DESGame.m in Sources */,
 				87D35F2916E3066200DA4552 /* DESLevenshtein.m in Sources */,
 				87D35F3116E486EC00DA4552 /* DESHistoryViewController.m in Sources */,
+				87D35F3C16E5AF4500DA4552 /* DESAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

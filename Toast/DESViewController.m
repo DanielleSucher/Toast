@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *previousGuessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *guessCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *answerLabel;
 @property (strong, nonatomic) DESGame *game;
 @end
 
@@ -52,16 +53,30 @@
     }
     [self resetGuessField];
 }
+- (IBAction)endGame:(id)sender {
+    [self setNewGame];
+    [self resetLabels];
+}
 
 - (void)UpdateUI {
-    self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count] -1];
-    self.previousGuessLabel.text = [NSString stringWithFormat:@"Is it more like %@", self.game.currentBestGuess];
+    [self updateUserDefaultsHistory];
     if (self.game.gameOver) {
-        self.resultsLabel.text = @"You won!";
+        [self setNewGame];
     } else {
         self.resultsLabel.text = [NSString stringWithFormat:@"It's more like %@ than like %@.", self.game.currentBestGuess, self.game.worseGuess];
     }
-    [self updateUserDefaultsHistory];
+    [self resetLabels];
+}
+
+- (void)resetLabels {
+    self.guessCountLabel.text = [NSString stringWithFormat:@"guesses: %d", [self.game.guesses count] -1];
+    self.previousGuessLabel.text = [NSString stringWithFormat:@"Is it more like %@", self.game.currentBestGuess];
+}
+
+- (void)setNewGame {
+    self.resultsLabel.text = @"Starting a new game!";
+    self.answerLabel.text = [NSString stringWithFormat:@"Solution for previous game: %@", self.game.word];
+    self.game = [[DESGame alloc] init];
 }
 
 - (void)resetGuessField {

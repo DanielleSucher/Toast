@@ -43,7 +43,7 @@
 }
 
 - (void)updateBetterAndWorseGuesses:(NSString *)newGuess givenNewGuessScore:(NSNumber *)newScore {
-    if (newScore > self.guessScores[[self indexOfCurrentBestGuess]]) {
+    if (self.guessScores[[self indexOfCurrentBestGuess]] >= newScore) {
         self.worseGuess = self.currentBestGuess;
         self.currentBestGuess = newGuess;
     } else {

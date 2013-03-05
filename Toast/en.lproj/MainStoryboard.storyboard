@@ -17,11 +17,48 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="JEr-sx-Gh6"/>
                         <segue destination="miQ-YW-9ih" kind="relationship" relationship="viewControllers" id="rh0-0U-oCR"/>
+                        <segue destination="qRx-WT-eeu" kind="relationship" relationship="viewControllers" id="5qN-21-3FT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="562-BZ-CYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-166" y="454"/>
+        </scene>
+        <!--About View Controller - About-->
+        <scene sceneID="Yfl-5F-ren">
+            <objects>
+                <viewController id="qRx-WT-eeu" customClass="DESAboutViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dM4-YH-hxP">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" id="3Wp-0b-R4p">
+                                <rect key="frame" x="0.0" y="-5" width="320" height="499"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Toast is inspired by the game French Toast, where one person thinks of an object and the other plays try to gather information by asking "Is it more like X or more like Y?" (where French toast is always the initial reference object, and the latest guess is always compared to the previous closest guess). 
+
+Your phone is thinking of a word, and you're trying to guess what it is. The only feedback you get is whether the word is more like your latest guess, or more like the previous best guess.
+
+How much one word is like another is based on Levenshtein edit distance, which counts the number of edits (i.e. addition, deletion, substitution) needed to transform one word into another.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="1"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" id="YmG-t4-Hnf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j5Z-Yl-iz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="1105"/>
         </scene>
         <!--History View Controller - Guess History-->
         <scene sceneID="LMJ-hL-XkF">
@@ -48,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuM-nK-gIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="273" y="765"/>
+            <point key="canvasLocation" x="461" y="454"/>
         </scene>
         <!--View Controller - Game-->
         <scene sceneID="5">
@@ -59,23 +96,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="9Fb-69-mbs">
-                                <rect key="frame" x="117" y="128" width="143" height="30"/>
+                                <rect key="frame" x="117" y="158" width="143" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Is it more like toast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sfU-6F-OVn">
-                                <rect key="frame" x="20" y="99" width="280" height="21"/>
+                                <rect key="frame" x="20" y="129" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NGd-hN-FBW">
-                                <rect key="frame" x="198" y="166" width="80" height="29"/>
+                                <rect key="frame" x="191" y="196" width="109" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Find out!">
+                                <state key="normal" title="Submit guess">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -86,8 +123,8 @@
                                     <action selector="returnFromSubmitButton:" destination="2" eventType="touchUpInside" id="NP3-v4-H6u"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="it's more like: " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7o8-6D-XxO">
-                                <rect key="frame" x="20" y="214" width="186" height="64"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="What word am I thinking of?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7o8-6D-XxO">
+                                <rect key="frame" x="20" y="36" width="280" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -95,21 +132,43 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="guesses: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K2v-gD-5Ap">
-                                <rect key="frame" x="20" y="286" width="144" height="25"/>
+                                <rect key="frame" x="20" y="242" width="144" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="or more like" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4x5-CJ-kNQ">
-                                <rect key="frame" x="20" y="132" width="89" height="21"/>
+                                <rect key="frame" x="20" y="162" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f64-IS-a6N">
-                                <rect key="frame" x="268" y="132" width="10" height="21"/>
+                                <rect key="frame" x="268" y="162" width="10" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Aic-H3-XgJ">
+                                <rect key="frame" x="118" y="275" width="85" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Give up!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="endGame:" destination="2" eventType="touchUpInside" id="ghI-cP-GT0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aVH-bA-aGC">
+                                <rect key="frame" x="20" y="326" width="280" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -120,6 +179,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Game" id="SG4-N6-NPq"/>
                     <connections>
+                        <outlet property="answerLabel" destination="aVH-bA-aGC" id="Ffu-hL-kbe"/>
                         <outlet property="guessCountLabel" destination="K2v-gD-5Ap" id="tE8-KV-DEh"/>
                         <outlet property="guessField" destination="9Fb-69-mbs" id="9sO-iG-8uf"/>
                         <outlet property="previousGuessLabel" destination="sfU-6F-OVn" id="mZh-Fq-bN2"/>
@@ -128,9 +188,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="461" y="-198"/>
         </scene>
     </scenes>
     <classes>
+        <class className="DESAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DESAboutViewController.h"/>
+        </class>
         <class className="DESHistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DESHistoryViewController.h"/>
             <relationships>
@@ -140,6 +204,7 @@
         <class className="DESViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DESViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="answerLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="guessCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="guessField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="previousGuessLabel" candidateClass="UILabel"/>
